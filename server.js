@@ -14,10 +14,14 @@ app.get('/', function(req, res){
 
 app.post('/publish/:channel/:event/', function(req, res){
   var params = req.params;
-  var result = io.sockets.emit(params.channel, { event: params.event, data: req.body });
+  io.sockets.emit(params.channel, { event: params.event, data: req.body });
+  res.status(200).json({ event: 'sent' })
 });
 
 app.use(express.static(__dirname + '/public'));
-http.listen(8080);
+
+http.listen(process.env.PORT || 8080, function(){
+  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+});
 
 var io = require('socket.io').listen(http);

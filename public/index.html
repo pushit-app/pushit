@@ -1,0 +1,8 @@
+<script src="/socket.io/socket.io.js"></script>
+<script src="/pushit.js"></script>
+<script>
+  var channel = _pushit.subscribe('jambonn');
+  channel.bind('steak', function (data) {
+    console.log("data: ", data);
+  });
+</script>

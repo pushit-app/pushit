@@ -20,7 +20,7 @@ app.post('/publish/:channel/:event/', function(req, res){
 
 app.use(express.static(__dirname + '/public'));
 
-http.listen(process.env.PORT || 8080, function(){
+http.listen(process.env.PORT || 6969, function(){
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
 

@@ -1,6 +1,5 @@
 var _pushit = {};
-// _pushit.url = 'http://localhost:8080';
-_pushit.url = 'https://pushit-beta.herokuapp.com';
+_pushit.url = 'https://slaask.com/ws';
 
 _pushit.lisentingChannels = {}
 

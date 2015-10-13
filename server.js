@@ -2,11 +2,9 @@ var express = require('express'),
 app         = express(),
 bodyParser  = require('body-parser'),
 http        = require('http').Server(app),
-multer      = require('multer');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(multer());
 
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/public/index.html');

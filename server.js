@@ -1,7 +1,8 @@
 var express = require('express'),
 app         = express(),
 bodyParser  = require('body-parser'),
-http        = require('http').Server(app);
+http        = require('http').Server(app),
+io          = require('socket.io')(http);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

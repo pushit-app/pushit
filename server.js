@@ -5,6 +5,8 @@ http        = require('http').Server(app),
 io          = require('socket.io')(http),
 rollbar     = require('rollbar');
 
+app.use(rollbar.errorHandler(process.env.ROLLBAR_API_KEY));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -19,8 +21,6 @@ app.post('/publish/:channel/:event/', function(req, res){
 });
 
 app.use(express.static(__dirname + '/public'));
-
-app.use(rollbar.errorHandler(process.env.ROLLBAR_API_KEY));
 
 http.listen(process.env.PORT || 8080, function(){
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);

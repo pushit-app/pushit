@@ -1,9 +1,11 @@
-var express = require('express'),
-app         = express(),
-bodyParser  = require('body-parser'),
-http        = require('http').Server(app),
-io          = require('socket.io')(http),
-rollbar     = require('rollbar');
+var newrelic  = require('newrelic');
+
+var express   = require('express'),
+app           = express(),
+bodyParser    = require('body-parser'),
+http          = require('http').Server(app),
+io            = require('socket.io')(http),
+rollbar       = require('rollbar');
 
 app.use(rollbar.errorHandler(process.env.ROLLBAR_API_KEY));
 

@@ -1,0 +1,20 @@
+{
+  "apps": [{
+    "name": "pushit",
+    "script": "server.js",
+    "env_production": {
+      "NODE_ENV": "production"
+    }
+  }],
+  "deploy": {
+    "production" : {
+      "key": "/Users/.../.ssh/",
+      "user": "",
+      "host": "",
+      "ref": "origin/master",
+      "repo": "git@github.com:pushit-app/pushit.git",
+      "path": "",
+      "post-deploy": "npm install && pm2 startOrRestart ecosystem.json --env production"
+    }
+  }
+}

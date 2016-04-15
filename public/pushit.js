@@ -1,5 +1,5 @@
 var _pushit = {};
-_pushit.url = 'https://ws2.slaask.com';
+_pushit.url = 'https://ws.slaask.com';
 
 _pushit.lisentingChannels = {}
 
